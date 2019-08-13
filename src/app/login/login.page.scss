@@ -1,0 +1,48 @@
+.login {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/image/loginbg.png');
+    background-size: cover;
+    position: relative;
+    .login-title{
+        margin-top: 20%;
+        color: #fff;
+        text-align: center;
+        font-size: 26px;
+        letter-spacing:3px;
+    }
+    .login-input {
+        box-sizing: border-box;
+        padding-top: 40px;
+        width: 100%;
+        height: 40%;
+        position: absolute;
+        bottom: 0;
+
+        .item {
+            width: 70%;
+            // height: 30px;
+            margin: 0 auto;
+        }
+        .input-item {
+            height: 40px;
+            padding: 0 10px;
+            border-radius: 10px;
+            border: 1px solid #9cb3ff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            background: #fff;
+            display: flex;
+            flex-direction: row;
+            .name{
+                width: 25%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                color: #666;
+                font-size: 14px;
+                
+            }
+        }
+    }
+}

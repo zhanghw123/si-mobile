@@ -1,0 +1,197 @@
+
+ion-item {
+    --padding-start:0;
+    --ion-safe-area-right: 0;
+   
+}
+
+.nodata {
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+    line-height: 20vh;
+}
+.filter-toolbar-wrapper{
+    width: 100%;
+    height: 55px;
+    background: #f4f7ff;
+    .filter-toolbar {
+        background: #fff;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50px;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        font-size: 4vw;
+        border-radius: 0 0 15px 15px;
+        border-bottom: 1px solid #e3e6ed;
+        .alert-level {
+            width: 22%;
+            height: 30px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #ededed;
+            border-radius: 100px;
+            position: relative;
+            
+            .text {
+                margin-right: 20px;
+            }
+            .icon {
+                font-size: 18px;
+            }
+            
+        }
+        .select-level {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background:rgba(0,0,0,0.4);
+        }
+        .alert-seachbar {
+            flex: 1;
+            height: 30px;
+            margin-left: 8px;
+            box-sizing: border-box;
+            position: relative;
+            .icon {
+                position: absolute;
+                top: 6px;
+                right: 5px;
+                font-size: 20px;
+                color: #b7bbc2;
+                z-index: 50;
+            }
+            .icon1 {
+                position: absolute;
+                top: 6px;
+                right: 30px;
+                font-size: 20px;
+                color: #b7bbc2;
+                z-index: 50;
+            }
+            .input {
+                --padding-start: 10px;
+                --padding-end: 10px;
+                box-sizing: border-box;
+                padding: 0 5px;
+                width: 100%;
+                height: 30px;
+                border: 1px solid #ededed;
+                border-radius: 50px;
+            }
+        }
+        .filter-btn {
+            padding-left: 10px;
+            margin-left: 10px;
+            border-left: 1px solid #b7bbc2;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.resource-item {
+    background: #fff;
+    width: 100%;
+    min-height: 15vh;
+    position: relative;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #666666;
+    .resource-name {
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .type {
+            padding: 5px 10px;
+            background: #4c86f7;
+            border-radius: 5px;
+            color: #fff;
+            margin-right: 10px;
+        }
+        .name {
+
+        }
+    }
+    .resource-ip {
+        margin: 5px 0;
+    }
+    .resource-progress {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        .value {
+            width: 22%;
+            p {
+                height: 25px;
+                line-height: 25px;
+            }
+        }
+        .progress-box {
+            flex: 1
+        }
+    }
+}
+
+.deadStatus {
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        content: "";
+        width: 5px;
+        height: 100%;
+        background: red;
+
+    }
+}
+.normalStatus {
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        content: "";
+        width: 5px;
+        height: 100%;
+        background: #4cd660;
+
+    }
+}
+.warnStatus {
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        content: "";
+        width: 5px;
+        height: 100%;
+        background: yellow;
+
+    }
+}
+.badStatus {
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        content: "";
+        width: 5px;
+        height: 100%;
+        background: orange;
+
+    }
+}

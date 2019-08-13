@@ -1,0 +1,23 @@
+<div class="login">
+    <div class="login-title">
+      <P>欢迎使用</P>
+      <P>SI</P>
+      <P>时刻全面知晓</P>
+      <P>您的IT系统</P>
+    </div>
+    <div class="login-input">
+      <!-- <p class="tip">首次使用请设置一下信息</p> -->
+      <div class="input-item item">
+          <div class="name">IP</div>
+          <ion-input [(ngModel)]="host" type="text" placeholder="服务器IP"></ion-input>
+      </div>
+      <div class="input-item item">
+          <div class="name">端口号</div>
+          <ion-input [(ngModel)]="port" type="text" placeholder="端口号"></ion-input>
+      </div>
+      <div class="item">
+          <ion-button expand="block" (click)="confirm()">确定</ion-button>
+      </div>
+        
+    </div>
+  </div>

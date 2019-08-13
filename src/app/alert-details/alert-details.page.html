@@ -1,0 +1,78 @@
+<ion-header id='header' class="si-header" translucent>
+  <ion-toolbar class="si-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>告警详情</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<div class="alert-content">
+  <div class="wrapper">
+    <div class="details">
+      <div class="resourceName border" ngClass={{details.warningLevel}}>
+        {{details.resourceName}}
+      </div>
+      <div class="resourceItem">
+        <div class="name">IP地址</div>
+        <div class="content">
+          {{details.ipAddress}}
+        </div>
+      </div>
+      <div class="resourceItem border">
+        <div class="name">资源类型</div>
+        <div class="content">
+            {{details.resourceType}}
+        </div>
+      </div>
+      
+      <div class="resourceItem">
+        <div class="name">告警内容</div>
+        <div class="content">
+            {{details.warningContent}}
+        </div>
+      </div>
+      <div class="resourceItem border">
+        <div class="name">发生时间</div>
+        <div class="content">
+            {{format(details.occureTime).a}}  {{format(details.occureTime).b}}
+            
+        </div>
+      </div>
+      <div class="resourceItem">
+        <div class="name">设备位置</div>
+        <div class="content">
+            {{resource.location}}
+        </div>
+      </div>
+      <div class="resourceItem">
+        <div class="name">所属业务系统</div>
+        <div class="content">
+          {{resource.system}}
+        </div>
+      </div>
+      <div class="resourceItem">
+        <div class="name">运维负责人</div>
+        <div class="content">
+          {{resource.realName}}
+        </div>
+      </div>  
+      <div class="resourceItem">
+        <div class="name">负责人邮箱</div>
+        <div class="content">
+          {{resource.userEmail}}
+        </div>
+      </div> 
+      <div class="resourceItem">
+        <div class="name">负责人手机</div>
+        <div class="content">
+          {{resource.userPhone}}
+        </div>
+      </div>   
+    </div>
+    <div *ngIf="flag===true" class="confirm-btn" (click)="alertConfirm()">确认</div>
+    <div *ngIf="flag===false" class="confirm-btn" (click)="alertCancel()">取消确认</div>
+  </div>
+</div>

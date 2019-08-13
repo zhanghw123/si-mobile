@@ -1,0 +1,69 @@
+<ion-menu side="start">
+    <ion-header>
+      <ion-toolbar translucent>
+        <ion-title style="text-align: center;">告警</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="settings" slot="start"></ion-icon>
+          <ion-label>未设置</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="settings" slot="start"></ion-icon>
+          <ion-label>未设置</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="settings" slot="start"></ion-icon>
+          <ion-label>未设置</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" main>
+
+    <ion-header class="header-bg">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="text-align: center;margin-left:-48px;">告警列表</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="tabs-wrapper">
+      <div 
+          *ngFor="let item of tabsArr;let i=index"
+          (click)="changIndex(item)"
+          [class.active]="item.index === currentIndex"
+          class="title-item">{{item.title}}</div>
+    </div>
+    <div style="flex: 1;position: relative;">
+      <ion-router-outlet ></ion-router-outlet>
+    </div>
+    <!-- <ion-tabs (ionTabsDidChange)="tabsChange($event)" style="top:56px;height:auto;" class="alert-tabs">
+
+        <ion-tab-bar style="height:40px;--background:linear-gradient(#496bf6, #4c88f7);" slot="top">
+          <ion-tab-button style="color:#fff" [class.tab-selected]="flag1" tab="/unrecover">
+      
+            <ion-label>未恢复</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button style="color:#fff" [class.tab-selected]="flag2" tab="tab1/recover">
+            
+            <ion-label>已恢复</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button style="color:#fff" [class.tab-selected]="flag3" tab="tab1/confirm">
+          
+            <ion-label>已确认</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      
+      </ion-tabs> -->
+
+      
+
+    
+  </div>

@@ -1,0 +1,20 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>test</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <!-- <ion-button size="large" (click)="routerChange()">router</ion-button> -->
+
+  <ul class="tabs">
+      
+      <li *ngFor="let item of navArr;let i=index" 
+          (click)="changIndex(item)" 
+          [class.active]="item.index === currentIndex"
+          class="tab-item">{{item.title}}</li>
+      
+      
+  </ul>
+
+</ion-content>

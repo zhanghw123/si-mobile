@@ -1,0 +1,36 @@
+
+
+<ion-content>
+  <ion-item>
+    <div class="item-wrapper">
+      <div class="item-name">设备位置</div>
+      <div class="item-value">{{info.location}}</div>
+    </div>
+  </ion-item>
+  <ion-item>
+      <div class="item-wrapper">
+        <div class="item-name">所属业务系统</div>
+        <div class="item-value">{{info.system}}</div>
+      </div>
+  </ion-item>
+  <div class="item-user">运维负责人</div>
+  <div class="user-wrapper">
+    <div class="user-img">
+      <img src="../../assets/image/user.png" alt="">
+    </div>
+    <div class="user-name">{{info.realName}}</div>
+    <div class="user-info">
+      <div class="icon-box">
+          <ion-icon name="mail"></ion-icon>
+      </div>
+      <div class="number-box">{{info.userEmail}}</div>
+    </div>
+    <div class="user-info">
+        <div class="icon-box">
+            <ion-icon name="phone-portrait"></ion-icon>
+        </div>
+        <div class="number-box">{{info.userPhone}}</div>
+      </div>
+    
+  </div>
+</ion-content>

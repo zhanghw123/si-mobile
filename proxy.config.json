@@ -1,0 +1,7 @@
+{
+    "/portal": {
+        "target": "http://10.128.106.178",
+        "secure": "false" 
+    }
+
+}

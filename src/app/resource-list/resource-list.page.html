@@ -1,0 +1,56 @@
+<div class="filter-toolbar-wrapper">
+  <div class="filter-toolbar">
+    <div class="alert-level">
+      <ion-select id="ionselect" (ionChange)="getStatusLevel($event)" placeholder="级别" okText="确定" cancelText="取消">
+        <ion-select-option selected value="all">全部</ion-select-option>
+        <ion-select-option value="levelNormal">正常</ion-select-option>
+        <ion-select-option value="levelWarn">警告</ion-select-option>
+        <ion-select-option value="levelBad">严重</ion-select-option>
+        <ion-select-option value="levelDead">致命</ion-select-option>
+
+      </ion-select>
+    </div>
+    <div class="alert-seachbar">
+
+      <ion-input class="input" [(ngModel)]="searchVal" (ionBlur)="onBlur()" (ionFocus)="onFocus()" type="text"
+        placeholder="IP/名称"></ion-input>
+      <ion-icon class="icon" name="search" (click)="searchClick()"></ion-icon>
+      <ion-icon *ngIf="searchEmpty===true" (click)="searchClean($event)" class="icon1" name="close-circle-outline">
+      </ion-icon>
+    </div>
+  </div>
+</div>
+<ion-content>
+  <ion-item-sliding *ngFor="let item of resourceList;let i=index" (click)="goDetails(item)">
+    <ion-item >
+      <div ngClass={{item.status}} class="resource-item">
+        <div class="resource-name">
+          <span class="type">{{item.resourceType}}</span>
+          <span class="name">{{item.name}}</span>
+        </div>
+        <div class="resource-ip">{{item.ips[0]}}</div>
+        <div class="resource-progress">
+          <div class="value">
+            <p>CPU利用率</p>
+            <p>内存利用率</p>
+          </div>
+          <div class="progress-box">
+            <app-progress-bar [total]='100' [current]="item.cpuUse"></app-progress-bar>
+            <app-progress-bar [total]='100' [current]="item.momoryUse"></app-progress-bar>
+          </div>
+        </div>
+        
+      </div>
+    </ion-item>
+  </ion-item-sliding>
+
+  <div *ngIf="resourceList.length===0" class="nodata">
+      暂无数据
+  </div>
+
+  <ion-infinite-scroll id="infinite-scroll" threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content id="scroll-content" loadingSpinner="crescent" loadingText="加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "si-mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

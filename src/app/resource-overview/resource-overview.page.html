@@ -1,0 +1,20 @@
+<ion-content style="--background: #f4f7ff;">
+  <div class="detail-item"  *ngFor="let item of list;let i=index">
+      <ion-item (click)="itemClick(item,i)">
+          <ion-label style="margin-left: 10px">
+            {{item.targetName}}
+          </ion-label>
+        
+          <ion-icon [class.arrowup]="item.isShow" class="icon" name="arrow-dropdown"></ion-icon>
+      </ion-item>
+      <div class="item-chart" [class.switchH]="!item.isShow">
+          <app-line-chart style="width: 90%;height: 26vh;" [xAxisData]="item.xAxisData"  [data]="item.data"></app-line-chart>
+          <!-- <div  class="chart-box" echarts [options]="chartOption" (chartInit)="onChartInit($event)"></div> -->
+      </div>
+  </div>
+
+  
+  
+  
+  
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header id='header' class="si-header" translucent>
+  <ion-toolbar class="si-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>设备详情</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="resource-content">
+  <div ngClass={{status}} class="resourceName border">
+    {{name}}
+  </div>
+  <div class="tab-list border">
+      <div class="title-box">
+          <div 
+          (click)="changIndex(item)"
+          [class.active]="item.index === currentIndex"
+          *ngFor="let item of tabsArr;let i=index"
+          class="tab-item">{{item.title}}</div>
+      </div>
+    
+  </div>
+  <div style="flex: 1;position: relative;">
+    <ion-router-outlet ></ion-router-outlet>
+  </div>
+  
+</div>

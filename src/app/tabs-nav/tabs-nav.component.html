@@ -1,0 +1,19 @@
+<div class="tabs-nav-wrapper">
+    <div class="tabs-nav">
+      <div
+          *ngFor="let item of navArr;let i=index"
+          (click)="changIndex(item)"
+          [class.active]="item.index === currentIndex"
+          class="tab-title"
+      >{{item.title}}</div>
+      
+      
+    </div>
+    <div class="tab-content">
+
+        <ng-content class="content-item" *ngIf="currentIndex===0" select="[name=tab1]"></ng-content>
+        <ng-content class="content-item" *ngIf="currentIndex===1" select="[name=tab2]"></ng-content>
+        <ng-content class="content-item" *ngIf="currentIndex===2" select="[name=tab3]"></ng-content>
+    </div>
+    
+</div>

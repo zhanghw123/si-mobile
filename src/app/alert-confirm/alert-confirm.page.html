@@ -1,0 +1,147 @@
+<div class="alert-list-wrapper">
+  <div class="filter-toolbar-wrapper">
+    <div class="filter-toolbar">
+      <div class="alert-level">
+        <!-- <span class="text">级别</span>
+            <ion-icon class="icon" name="arrow-dropdown"></ion-icon> -->
+        <ion-select id="ionselect" (ionChange)="getAlertLevel($event)" placeholder="级别" okText="确定" cancelText="取消">
+          <ion-select-option selected value="all">全部</ion-select-option>
+          <ion-select-option value="levelWarn">警告</ion-select-option>
+          <ion-select-option value="levelBad">严重</ion-select-option>
+          <ion-select-option value="levelDead">致命</ion-select-option>
+          
+          
+          
+
+
+
+        </ion-select>
+      </div>
+      <div class="alert-seachbar">
+
+        <ion-input class="input" [(ngModel)]="searchVal" (ionBlur)="onBlur()" (ionFocus)="onFocus()" type="text"
+          placeholder="告警内容"></ion-input>
+        <ion-icon class="icon" name="search" (click)="searchClick()"></ion-icon>
+        <ion-icon *ngIf="searchEmpty===true" (click)="searchClean()" class="icon1" name="close-circle-outline"></ion-icon>
+      </div>
+      <div class="filter-btn" (click)="filterChange()">
+        筛选<ion-icon name="funnel"></ion-icon>
+      </div>
+      <div class="filter-content" id="filter-wrap" [class.transitionL]="filterBoxFlag" (click)="filterTrue($event)">
+        <div class="content-box">
+          <div class="filter-condition">
+            <!-- *ngFor="let item of unrecoveredlist;let i=index" -->
+            <div class="condition-wrapper">
+              <p class="condition-title">域</p>
+              <div class="condition-item">
+
+                <div *ngFor="let item of domainList;let i=index" class="item-box" [class.active]="item.checked"
+                  (click)="domainClick(item,i)">{{item.value}}</div>
+
+                <div class="item-box box-none"></div>
+                <div class="item-box box-none"></div>
+
+              </div>
+            </div>
+            <div class="condition-wrapper">
+              <p class="condition-title">级别</p>
+              <div class="condition-item">
+                <div *ngFor="let item of levelList;let i=index" class="item-box" (click)="levelClick(item,i)"
+                  [class.active]="item.checked">{{item.value}}</div>
+
+
+              </div>
+            </div>
+            <div class="condition-wrapper">
+              <p class="condition-title">告警对象</p>
+              <div class="condition-item">
+                <div *ngFor="let item of alertObject;let i=index" class="item-box" (click)="alertobjClick(item,i)"
+                  [class.active]="item.checked">{{item.value}}</div>
+
+                <div class="item-box box-none"></div>
+
+              </div>
+            </div>
+            <div class="condition-wrapper" style="height: 32px;">
+
+              <ion-input [(ngModel)]="filterIP" class="input" type="text" placeholder="请输入IP地址"></ion-input>
+            </div>
+            <div class="condition-wrapper">
+              <p class="condition-title">告警内容</p>
+              <div style="height: 32px;">
+                  <ion-input [(ngModel)]="filterAlertCentent" class="input" type="text" placeholder="请输入告警内容"></ion-input>
+              </div>
+              
+            </div>
+            <div class="condition-wrapper">
+              <p class="condition-title">告警时间</p>
+              <div class="condition-item">
+                <div *ngFor="let item of alertTime;let i=index" class="item-box" (click)="alertTimeClick(item,i)"
+                  [class.active]="item.checked">{{item.value}}</div>
+
+                <div class="item-box box-none"></div>
+                <div class="item-box box-none"></div>
+
+              </div>
+            </div>
+
+
+          </div>
+          <div class="filter-btns">
+            <div class="reset-btn" (click)="filterResetClick()">重置</div>
+            <div class="confirm-btn" (click)="filterConfirmClick()">确定</div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="select-level">123</div> -->
+    </div>
+  </div>
+
+  <ion-content class="alert-list">
+
+    <ion-refresher id="refresher" class="refresher" (ionRefresh)="doRefresh($event)" (ionPull)="ionPull($event)"
+      (ionStart)="ionStart($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list class="alertlist">
+
+      <ion-item-sliding *ngFor="let item of allAlertList;let i=index">
+        <ion-item class="alertitem">
+          <div ngClass={{item.warningLevel}} (click)="goAlertdetails(item)" class="alert-item">
+            <div class="alert-title">
+
+              {{toSubstring(item.warningContent)}}
+            </div>
+            <div class="alert-info">
+              <div class="alert-location">
+                <p class="resourceName">{{item.resourceName}}</p>
+                <p>{{item.ipAddress}}</p>
+              </div>
+              <div class="alert-time">
+
+                <p>{{format(item.occureTime).a}} </p>
+                <p>{{format(item.occureTime).b}}</p>
+              </div>
+            </div>
+          </div>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option style="width: 60px" color="primary" (click)="confirmClick(item,i)">取消</ion-item-option>
+          <ion-item-option style="width: 60px" color="danger" (click)="deleteClick(item,i)">删除</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <app-no-data *ngIf="allAlertList.length===0"></app-no-data>
+
+    <ion-infinite-scroll id="infinite-scroll" threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content id="scroll-content" loadingSpinner="crescent" loadingText="加载更多...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-content>
+
+
+</div>

@@ -1,0 +1,73 @@
+<ion-menu side="start">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title style="text-align: center;">告警</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>未设置</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>未设置</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>未设置</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" main>
+
+  <ion-header class="header-bg">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title style="text-align: center;margin-left:-48px;">设备</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="resource-wrapper">
+    <div class="resource-overview">
+     
+      <div class="chart-box" [class.switchH]="heightFlag">
+        <div echarts [options]="chartOption" class="chart-wrapper" (chartInit)="onChartInit($event)" id="echatrs">
+        </div>
+      </div>
+
+
+      <div class="slide-btn" (click)="switchHeight()">
+        <span class="point"></span>
+      </div>
+    </div>
+
+
+    <div class="resourceList-wrapper">
+      
+      <div class="resourceList-title">
+        <div class="title-box">
+          
+            <div 
+            *ngFor="let item of tabsArr;let i=index"
+            (click)="changIndex(item)"
+            [class.active]="item.index === currentIndex"
+            class="title-item">{{item.title}}</div>
+        </div>
+        
+        
+      </div>
+      <div style="flex: 1;position: relative;">
+        <ion-router-outlet ></ion-router-outlet>
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>

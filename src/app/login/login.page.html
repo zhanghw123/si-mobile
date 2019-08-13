@@ -1,0 +1,23 @@
+<div class="login">
+ 
+  <div class="login-title">
+    <P>欢迎使用</P>
+    <P>SI</P>
+    <P>时刻全面知晓</P>
+    <P>您的IT系统</P>
+  </div>
+  <div class="login-input">
+    <div class="input-item item">
+        <div class="name">用户名</div>
+        <ion-input [(ngModel)]="username" type="text" placeholder="用户名"></ion-input>
+    </div>
+    <div class="input-item item">
+        <div class="name">密码</div>
+        <ion-input [(ngModel)]="password" type="password" placeholder="密码"></ion-input>
+    </div>
+    <div class="item">
+        <ion-button expand="block" (click)="login()">登录</ion-button>
+    </div>
+    
+  </div>
+</div>

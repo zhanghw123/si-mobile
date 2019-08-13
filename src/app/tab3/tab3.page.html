@@ -1,0 +1,70 @@
+<ion-menu side="start">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title style="text-align: center;">设置</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>未设置</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>未设置</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>未设置</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" main>
+  <ion-header class="header-bg">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title style="text-align: center;margin-left:-48px;">设置</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="config-wrapper">
+    <div class="user">
+      <div class="user-avatar">
+        <img src="../../assets/image/user.png">
+      </div>
+      <div class="user-name">
+        {{username}}
+      </div>
+    </div>
+    <div class="title">服务器设置</div>
+    <div class="config-item">
+      <div class="name">服务器IP</div>
+      <div class="value">
+          <ion-input [(ngModel)]="host" class="input" type="text" placeholder="请输入IP"></ion-input>
+      </div>
+    </div>
+    <div class="config-item">
+      <div class="name">端口</div>
+      <div class="value">
+          <ion-input [(ngModel)]="port" class="input" type="text" placeholder="请输入端口"></ion-input>
+      </div>
+    </div>
+    <div class="title">告警接收设置</div>
+    <div class="config-item" *ngFor="let item of alertLevel">
+      <div class="name">{{item.value}}</div>
+      <div class="toggle">
+        <ion-toggle [(ngModel)]="item.check" (ionChange)="alertLevelChange()" mode="ios" color="success" checked></ion-toggle>
+      </div>
+    </div>
+    
+    
+    <div class="config-btn" (click)="save()" style="margin-top: 5px;color: #0080cc;">保存</div>
+    <div class="config-btn" (click)="changeUser()">切换账号</div>
+    <div class="config-btn" (click)="closeApp()">退出登录</div>
+  </div>
+
+</div>
