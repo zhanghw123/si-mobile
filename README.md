@@ -1,2 +1,0 @@
-# si-mobile
-si-mobile
