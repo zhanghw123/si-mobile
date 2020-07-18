@@ -33,7 +33,7 @@
     "echarts": "^4.2.1",
     "element-angular": "^0.7.6",
     "ionic-plugin-keyboard": "2.2.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "ngx-cookie-service": "^2.2.0",
     "ngx-echarts": "^4.2.1",
     "rxjs": "~6.5.1",
